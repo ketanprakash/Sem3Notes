@@ -76,7 +76,7 @@ speed up used = speed up achieved when improvement is used
 
 <img height = 35 src="https://render.githubusercontent.com/render/math?math=\text{Speed up} = \frac{\text{Old Execution time}}{\text{New Execution time}}">
 
-Eg: 1998 version of a comp executes a program in 200sec. 2000 computer executes in 150sec;
+Eg: 1998 version of a comp executes a program in 200sec. 2000 computer executes in 150sec
 
 speed up = 200/150 = 1.33
 
