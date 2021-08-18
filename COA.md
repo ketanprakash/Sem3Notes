@@ -86,3 +86,69 @@ new execution time = 78/3 = 26
 
 5. Benchmark Programs
 Suite of typical programs that are tested on the programs. Eg: SPECviewperf(by SPEC), Cinebench(by Maxxon), etc. 
+
+## 2021-08-18
+
+Ex: A computer architect is desigining a mem system for the next version of a processor. If the current version of the processor spends 40% of its time processing memory, by how much speed up the memory system must achieve an overall speed up of 1.2?
+
+Solution: 
+Given fraction used = 0.4
+      fraction unused = 0.6
+
+      req speed up overall = 1.2021
+
+      speed up = 1/((fraction unused) + (fraction used)/speed up used)
+
+      1.2 = 1/(0.6 + 0.4/(speed up used))
+      0.4/(speed up used) + 0.6 = 1/1.2
+      speed up used = 1.71
+
+### Computer Organization
+
+#### Basic Structure of Computer organization
+
+![(image of computer block diagram)](https://ik.imagekit.io/ketanprakash001/NotesAssets/Screenshot_20210818_101252_WsWjGuSyT.png?updatedAt=1629267039559)
+
+![(image of computer block diagram with i/o bifurcation)](https://ik.imagekit.io/ketanprakash001/NotesAssets/Screenshot_20210818_101536_a7hbXdGXO.png?updatedAt=1629267038800)
+
+##### Components of a Processor
+
+1. CU
+
+2. ALU 
+  a. IU
+  b. FPU
+
+3. Register
+  a. MAR
+  b. MDR
+
+##### Types of memory
+
+1. ROM
+  a. Non-volatile memory segment that consists of the boostrap program that instructs the computer to load the OS. 
+  b. BIOS(Basic Input Output System)
+  c. Vector Address for the interrupts
+
+  Interrupt Handling:
+  ![(interrupt handling image)](https://ik.imagekit.io/ketanprakash001/NotesAssets/Screenshot_20210818_102604_Mwi8UVroU.png?updatedAt=1629267037930)
+
+2. RAM
+
+![(image of computer block diagram with i/o and memory bifurcation)](https://ik.imagekit.io/ketanprakash001/NotesAssets/Screenshot_20210818_105312_Z6nmrbY8d.png?updatedAt=1629267037616)
+
+* Entire memory bus can be seen as a set of buses divided into the address bus, control bus and data bus.
+
+* Address Bus: Used by processor to address the instruction. 
+
+* Data Bus: Carries instruction/data depending on the instruction by processor. 
+
+* Control Bus: Controls the timings of various actions during the interaction(fetching/load, memory read/write, i/o read/write)
+
+* These buses together comprise the memory bus
+
+##### Addressing of Memory Systems
+
+1. Little Endian System: LSB is stored in the address specified by the store operation
+
+2. Big Endian System: MSB is stored in the address specified specfied by the store operation

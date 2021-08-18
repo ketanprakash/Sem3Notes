@@ -74,3 +74,49 @@ Recommended Book: [Database System Concepts](https://docs.google.com/viewer?a=v&
 25. [Advanced Data Types](https://docs.google.com/presentation/d/1gJK1vJgRj3ErZXUA102RPHNT-6bRoHFz/edit?usp=drive_web&ouid=107556050169885649329&rtpof=true)	
 
 26. [Advanced Transaction Processing](https://docs.google.com/presentation/d/1gO9obR6XekClISxjWGQUbGkYA5faUs0s/edit#slide=id.p1)
+
+## 2021-08-18
+
+### Introduction and Overview
+
+1. DBMS has two components: 
+  a. The Data
+  b. A set of programs to manipulate(Eg. perform CRUD operations) the data
+
+2. DBMS forms the backend of any application that uses data
+
+3. Drawbacks of using file systems(not using DBMS): 
+  a. Data redundancy and inconsistency. Eg: Multiple file formats. 
+  b. Difficulty in accessing data. Eg: Need to write a new program to carry out each task
+  c. Data isolation
+  d. Integrity problems
+  e. Atomicity of Updates
+  f. Concurrant Access by mutliple users
+  g. Security problems
+
+4. Levels of abstraction 
+  a. Physical Level
+  b. Logical level
+  c. View Level 
+
+5. Data Models
+  a. A collection of tools
+    i. Data
+    ii. Data Relationships
+    iii. Data Semantics
+    iv. Data contraints
+
+  b. Relational Model
+  c. Entitity-Relationship data model
+  d. Object Based Data Models
+  e. Semistructured Model
+  d. Other older models like Network Model and heirarchial model
+
+6. Relational Model
+  a. All the data is stored in various tables.
+
+7. Data Definition Language: specification for defining the database schema.
+
+8. Data Manipulation Language
+
+9. Data Control Language
