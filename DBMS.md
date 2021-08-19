@@ -80,37 +80,37 @@ Recommended Book: [Database System Concepts](https://docs.google.com/viewer?a=v&
 ### Introduction and Overview
 
 1. DBMS has two components: 
-  a. The Data
-  b. A set of programs to manipulate(Eg. perform CRUD operations) the data
+    1. The Data
+    1. A set of programs to manipulate(Eg. perform CRUD operations) the data
 
 2. DBMS forms the backend of any application that uses data
 
 3. Drawbacks of using file systems(not using DBMS): 
-  a. Data redundancy and inconsistency. Eg: Multiple file formats. 
-  b. Difficulty in accessing data. Eg: Need to write a new program to carry out each task
-  c. Data isolation
-  d. Integrity problems
-  e. Atomicity of Updates
-  f. Concurrant Access by mutliple users
-  g. Security problems
+    1. Data redundancy and inconsistency. Eg: Multiple file formats. 
+    1. Difficulty in accessing data. Eg: Need to write a new program to carry out each task
+    1. Data isolation
+    1. Integrity problems
+    1. Atomicity of Updates
+    1. Concurrant Access by mutliple users
+    1. Security problems
 
 4. Levels of abstraction 
-  a. Physical Level
-  b. Logical level
-  c. View Level 
+    1. Physical Level
+    1. Logical level
+    1. View Level 
 
 5. Data Models
-  a. A collection of tools
-    i. Data
-    ii. Data Relationships
-    iii. Data Semantics
-    iv. Data contraints
+    1. A collection of tools
+        1. Data
+        1. Data Relationships
+        1. Data Semantics
+        1. Data contraints
 
-  b. Relational Model
-  c. Entitity-Relationship data model
-  d. Object Based Data Models
-  e. Semistructured Model
-  d. Other older models like Network Model and heirarchial model
+    1. Relational Model
+    1. Entitity-Relationship data model
+    1. Object Based Data Models
+    1. Semistructured Model
+    1. Other older models like Network Model and heirarchial model
 
 6. Relational Model
   a. All the data is stored in various tables.

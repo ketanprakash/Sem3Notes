@@ -116,19 +116,19 @@ Given fraction used = 0.4
 1. CU
 
 2. ALU 
-  a. IU
-  b. FPU
+    1. IU
+    1. FPU
 
 3. Register
-  a. MAR
-  b. MDR
+    1. MAR
+    1. MDR
 
 ##### Types of memory
 
 1. ROM
-  a. Non-volatile memory segment that consists of the boostrap program that instructs the computer to load the OS. 
-  b. BIOS(Basic Input Output System)
-  c. Vector Address for the interrupts
+    1. Non-volatile memory segment that consists of the boostrap program that instructs the computer to load the OS. 
+    1. BIOS(Basic Input Output System)
+    1. Vector Address for the interrupts
 
   Interrupt Handling:
   ![(interrupt handling image)](https://ik.imagekit.io/ketanprakash001/NotesAssets/Screenshot_20210818_102604_Mwi8UVroU.png?updatedAt=1629267037930)
