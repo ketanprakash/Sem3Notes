@@ -79,44 +79,94 @@ Recommended Book: [Database System Concepts](https://docs.google.com/viewer?a=v&
 
 ### Introduction and Overview
 
-1. DBMS has two components: 
-    1. The Data
-    1. A set of programs to manipulate(Eg. perform CRUD operations) the data
+#### DBMS has two components: 
+1. The Data
+1. A set of programs to manipulate(Eg. perform CRUD operations) the data
 
-2. DBMS forms the backend of any application that uses data
+#### DBMS forms the backend of any application that uses data
 
-3. Drawbacks of using file systems(not using DBMS): 
-    1. Data redundancy and inconsistency. Eg: Multiple file formats. 
-    1. Difficulty in accessing data. Eg: Need to write a new program to carry out each task
-    1. Data isolation
-    1. Integrity problems
-    1. Atomicity of Updates
-    1. Concurrant Access by mutliple users
-    1. Security problems
+#### Drawbacks of using file systems(not using DBMS): 
+1. Data redundancy and inconsistency. Eg: Multiple file formats. 
+1. Difficulty in accessing data. Eg: Need to write a new program to carry out each task
+1. Data isolation
+1. Integrity problems
+1. Atomicity of Updates
+1. Concurrant Access by mutliple users
+1. Security problems
 
-4. Levels of abstraction 
-    1. Physical Level
-    1. Logical level
-    1. View Level 
+#### Levels of abstraction 
+1. Physical Level
+1. Logical level
+1. View Level 
 
-5. Data Models
-    1. A collection of tools
-        1. Data
-        1. Data Relationships
-        1. Data Semantics
-        1. Data contraints
+#### Data Models
+1. A collection of tools
+    1. Data
+    1. Data Relationships
+    1. Data Semantics
+    1. Data contraints
 
-    1. Relational Model
-    1. Entitity-Relationship data model
-    1. Object Based Data Models
-    1. Semistructured Model
-    1. Other older models like Network Model and heirarchial model
+1. Relational Model
+1. Entitity-Relationship data model
+1. Object Based Data Models
+1. Semistructured Model
+1. Other older models like Network Model and heirarchial model
 
-6. Relational Model
-  a. All the data is stored in various tables.
+#### Relational Model
+1. All the data is stored in various tables.
 
-7. Data Definition Language: specification for defining the database schema.
+#### Data Definition Language: specification for defining the database schema.
 
-8. Data Manipulation Language
+#### Data Manipulation Language
+1. Two classes of Languages: 
+    1. Pure
+        1. Relational Algebra
+        1. Tuple relational calculus
+        1. Domain relational calculus
+    1. Commercial
+        1. SQL
+#### Data Control Language
 
-9. Data Control Language
+## 2021-08-23
+
+#### SQL
+1. Most widely used commercial language 
+1. Non-perocedural language
+1. Not a programming language
+
+#### Database Design
+
+* Logical Design - Deciding the schema. Database requires that we find a good collection of relation schemas. 
+    * Computer Science decision - What realation schemas should we have and how should the attributes be distributed among the various relation schemas
+
+* Physical Design - Deciding on the physical layout of the database
+
+#### Design Approaches
+
+1. Entity-Relationship Model
+
+1. Normalization theory
+
+#### Database Manager
+
+1. Storage Management
+    1. Storage Manager is a program module that porvides the interface between low level data stored in the database the application programs and queries submitted to the system. 
+    1. The Storeage maanger is responsible for the following tasks: 
+        1. Interaction with the OS file manager and
+        1. Efficient storing, retrieving and updating of data 
+
+2. Query Processing
+    1. Parsing and translation
+    1. Optimization
+    1. Evalutation
+
+3.  Transaction
+
+#### Database Architecture
+
+1. Centralized
+1. Client-Server 
+1. Parallel (multi-processor)
+1. Distributed
+
+> DBMS uses B+ trees
