@@ -92,16 +92,13 @@ Suite of typical programs that are tested on the programs. Eg: SPECviewperf(by S
 Ex: A computer architect is desigining a mem system for the next version of a processor. If the current version of the processor spends 40% of its time processing memory, by how much speed up the memory system must achieve an overall speed up of 1.2?
 
 Solution: 
-Given fraction used = 0.4
-      fraction unused = 0.6
-
-      req speed up overall = 1.2021
-
-      speed up = 1/((fraction unused) + (fraction used)/speed up used)
-
-      1.2 = 1/(0.6 + 0.4/(speed up used))
-      0.4/(speed up used) + 0.6 = 1/1.2
-      speed up used = 1.71
+fraction used = 0.4
+fraction unused = 0.6
+req speed up overall = 1.2021
+speed up = 1/((fraction unused) + (fraction used)/(speed up used))
+1.2 = 1/(0.6 + 0.4/(speed up used))
+0.4/(speed up used) + 0.6 = 1/1.2
+speed up used = 1.71
 
 ### Computer Organization
 
@@ -152,3 +149,54 @@ Given fraction used = 0.4
 1. Little Endian System: LSB is stored in the address specified by the store operation
 
 2. Big Endian System: MSB is stored in the address specified specfied by the store operation
+
+## 2021-08-24
+
+### Computer system: Layers Of Abstraction
+
+*Software*
+
+1. Application Programs
+2. Algorithms
+3. Language
+
+*Hardware*
+
+4. Instruction set Architecture(and I/O Interfaces)
+5. Microarchitecture
+6. Circuits
+7. Devices
+
+![(image of a cpu)](https://ik.imagekit.io/ketanprakash001/NotesAssets/Screenshot_20210824_101334_xejJPFWNT.png?updatedAt=1629792047277)
+
+#### Transformation between layers of abstraction
+
+**Layers**
+*Software*
+1. Problem
+2. Algorithm
+3. Program
+
+*Hardware*
+
+4. Instruction set Architecture
+5. Microarchitecture
+6. Circuits
+7. Devices
+
+**Transformations**
+
+![(image of the flowchart)](https://ik.imagekit.io/ketanprakash001/NotesAssets/Screenshot_20210824_104211_4u_6WTtEn.png?updatedAt=1629792046460)
+
+1. Problem -> Algorithm (Software Design i.e Choose Data Structures and Algorithms)
+1. Algorithm -> Program (Programming i.e Use some language to express the design)
+1. Program -> ISA (Compiling/Interpreting i.e converting language to machine instructions)
+1. ISA -> Microarchitecture (Processor Design i.e. choosing structures to design each instructions)
+1. Microarchitecture -> Circuits (logic/circuit design i.e gates and low level circuits to implement the components)
+1. Circuits -> Devices (Process Engineering and Fabrication i.e Develop and Manufacture Lowest level of components)
+
+**Choices Available at each level**
+
+![(Image of choices flowchart)](https://ik.imagekit.io/ketanprakash001/NotesAssets/Screenshot_20210824_143248_K79_QGHyH.png?updatedAt=1629795821719)
+
+![(Self Study Work)](https://ik.imagekit.io/ketanprakash001/NotesAssets/Screenshot_20210824_105714_pV3GfOJog.png?updatedAt=1629792045870)
