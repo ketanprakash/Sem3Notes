@@ -200,3 +200,45 @@ speed up used = 1.71
 ![(Image of choices flowchart)](https://ik.imagekit.io/ketanprakash001/NotesAssets/Screenshot_20210824_143248_K79_QGHyH.png?updatedAt=1629795821719)
 
 ![(Self Study Work)](https://ik.imagekit.io/ketanprakash001/NotesAssets/Screenshot_20210824_105714_pV3GfOJog.png?updatedAt=1629792045870)
+
+## 2021-08-25
+
+### Instruction Set
+
+**A processor instruction set defines how the instructions access their operands and how the instructions are described in the processor's assembly language**
+
+<hr/>
+Eg instruction: 
+(i) MOV r1, r2 // Move the contents in register r2 to r1 
+
+r1, r2 - operands
+MOV - operation or "opcode"
+
+Here the instruction accesses the contents of the registers r1 and r2 directly
+
+The instruction performs three operations:
+1. Fetch
+The instructions are fetched 
+1. Decode
+Instructions are decoded in the CPU
+1. Execute
+Instructions are executed according to the operation implementation in the CPU
+
+(ii) MUL r0, M[addr1]  
+The instruction accesses the second operand indirectly
+(iii) MUL r1, r2{M[addr1]}
+The instruction accesses the second operand indirectly
+
+(source and destination image)
+<hr/>
+
+**Opcode: Operations to be done by the processor**
+**Operand: That are to be used in the operation**
+
+>Instruction has both Opcode and Operand
+
+**Instruction: Instruction is a word in binary of m-bytes where m = 1, 2, 3, ... n, opcode is put in the opcode field of the instruction which is fetched by the processor.**
+
+![(instruction fields image 1)](https://ik.imagekit.io/ketanprakash001/NotesAssets/Screenshot_20210825_101923_lbjluo6os.png?updatedAt=1629874104566)
+
+![(instruction fields image 2)](https://ik.imagekit.io/ketanprakash001/NotesAssets/Screenshot_20210825_101516_1CAJKkHT_.png?updatedAt=1629874201454)
