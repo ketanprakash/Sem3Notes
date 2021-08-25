@@ -239,6 +239,6 @@ The instruction accesses the second operand indirectly
 
 >Instruction has both Opcode and Operand
 
-**Instruction: Instruction is a word in binary of m-bytes where m = 1, 2, 3, ... n, opcode is put in the opcode field of the instruction which is fetched by the processor.**
+**Instruction: Instruction is a "word" in binary of m-bytes where m = 1, 2, 3, ... n, opcode is put in the opcode field of the instruction which is fetched by the processor.**
 
 ![(instruction fields image 1)](https://ik.imagekit.io/ketanprakash001/NotesAssets/Screenshot_20210825_101923_lbjluo6os.png?updatedAt=1629874104566)
