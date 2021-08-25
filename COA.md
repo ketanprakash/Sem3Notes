@@ -29,6 +29,8 @@
 1. MIPS(Millions of instructions per second): 
 <img height = 40 src="https://render.githubusercontent.com/render/math?math=\frac{\text{No of instructions executed in running a program}}{\text{Time required to run the program}}">
 
+
+(Number of instructions executed per second)
 > Note: MIPS is not commonly used because it does not tell us anything about the architecture
 
 2. CTI/IPC: Cycles per instruction(CPI)/Instructions per Cycle(IPC):
