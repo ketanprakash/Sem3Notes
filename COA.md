@@ -27,7 +27,7 @@
 ## 2021-08-16
 #### Performance Metrics
 1. MIPS(Millions of instructions per second): 
-No of instructions executed in running a program/Time required to run the program
+<img height = 40 src="https://render.githubusercontent.com/render/math?math=\frac{\text{No of instructions executed in running a program}}{\text{Time required to run the program}}">
 
 > Note: MIPS is not commonly used because it does not tell us anything about the architecture
 
