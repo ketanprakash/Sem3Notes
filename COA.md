@@ -231,7 +231,7 @@ The instruction accesses the second operand indirectly
 (iii) MUL r1, r2{M[addr1]}
 The instruction accesses the second operand indirectly
 
-(source and destination image)
+![(source and destination image)](https://ik.imagekit.io/ketanprakash001/NotesAssets/Screenshot_20210825_101516_1CAJKkHT_.png?updatedAt=1629874201454)
 <hr/>
 
 **Opcode: Operations to be done by the processor**
@@ -242,5 +242,3 @@ The instruction accesses the second operand indirectly
 **Instruction: Instruction is a word in binary of m-bytes where m = 1, 2, 3, ... n, opcode is put in the opcode field of the instruction which is fetched by the processor.**
 
 ![(instruction fields image 1)](https://ik.imagekit.io/ketanprakash001/NotesAssets/Screenshot_20210825_101923_lbjluo6os.png?updatedAt=1629874104566)
-
-![(instruction fields image 2)](https://ik.imagekit.io/ketanprakash001/NotesAssets/Screenshot_20210825_101516_1CAJKkHT_.png?updatedAt=1629874201454)
