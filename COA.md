@@ -241,4 +241,55 @@ The instruction accesses the second operand indirectly
 
 **Instruction: Instruction is a "word" in binary of m-bytes where m = 1, 2, 3, ... n, opcode is put in the opcode field of the instruction which is fetched by the processor.**
 
-![(instruction fields image 1)](https://ik.imagekit.io/ketanprakash001/NotesAssets/Screenshot_20210825_101923_lbjluo6os.png?updatedAt=1629874104566)
+![(instruction fields image 1)](https://ik.imagekit.io/ketanprakash001/NotesAssets/Screenshot_20210827_100345_1SJ-u5SEuEI.png?updatedAt=1630041935129)
+
+## 2021-08-27
+
+Eg: ADD r0, r1, r2 (Three address M/C instruction)
+
+r0 <- r1 + r2
+
+if 'r' is specified with 3 bits, 
+
+opcode field length = 16 - 3 - 3 - 3 = 7 bits
+
+Therefore, opcode bit length = 7 bits
+
+#### Operation formats
+
+1. Register - to - Register
+    1. One address machine instruction: <code>ADD r1</code> // AC <- AC + r1
+    1. Two address machine instruction: ```ADD r1, r2``` // r1 <- r1 + r2
+    1. Three address machine instruction: ```ADD r0, r1, r2``` // r0 <- r1 + r2
+    1. Zero address machine instruction: ```ADD``` //operands are implicit at place stack
+
+2. Memory - to - Register
+    * Eg: ```MUL r0, M[arr1]``` (32bits) // r0-r1 <- r0 * M[addr1]
+    * Two registers are used to store the result as result cannot be stored in a single register. This is pair is known as register pair.
+    * Bit length of the instruction: 6 bytes = 48 bits
+
+    ![(image of the instruction box1)](https://ik.imagekit.io/ketanprakash001/NotesAssets/Screenshot_20210827_105323_Tty1NFbq2u.png?updatedAt=1630041933764)
+
+3. Indirect Memory - to - Register
+    * Eg: ```MUL r0, r2{M[addr1]}``` // r0-r1 <- r0 * r2
+
+    * r2 specifies indirectly the address
+
+    * Are we reducing the instruction bit length? Yes, since r2 size is way less than size of the memory location, the instruction size decreases
+
+    ![(image of instruction box2)](https://ik.imagekit.io/ketanprakash001/NotesAssets/Screenshot_20210827_103755_pBzVgTRlS.png?updatedAt=1630041934313)
+
+    * let instruction size = 2 bytes = 16 bits
+    * opcode size = 16 - 3 - 3 - 3 = 7 bits
+
+4. Immediate Operand - to - Register
+    * *MOV r0, #b<sub>11</sub> - b<sub>0</sub> or MOV r0, #7* //r0 <- 7
+
+**Self-Test**
+1. ```MOV r0, r1``` //both operands are registers, Register-Register opeation
+
+1. ```LD r0, M(x);``` //Memory - to - Register
+
+1. ```ST {r1[M(x)]}, r2``` //Destination operand is a memeory address x pointed by register r1
+
+1.  ```ADD r1, #07``` //Second source operand 07 if immediate, first source and destination operands are the same and are in r1. (Immediate operand - Register)
