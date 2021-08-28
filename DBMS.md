@@ -170,3 +170,52 @@ Recommended Book: [Database System Concepts](https://docs.google.com/viewer?a=v&
 1. Distributed
 
 > DBMS uses B+ trees
+
+## 2021-08-27
+
+### Intro to Relational Model
+
+> Columns are called attributes
+> Rows are called tuples
+
+#### Attribute Types
+
+* The set of allowed values for each attribute is called the **domain** of the attribute
+    * For eg: Roll Number: (1 - 120), i.e. domain of RN is [1, 120]
+
+* Attribute values are (normally) required to be **atomic**; that is indivisible    
+    * Eg: Roll No: 2020IMT044 is not atomic as we can infer year, batch and roll no from it.
+   * Salary is an example of atomic attribute
+
+* The special value **null** is a member of every member of domain. Indicated that value is unknown. 
+
+
+#### Relation Schema and Instance
+
+* A<sub>1</sub>, A<sub>2</sub>, A<sub>3</sub>, A<sub>4</sub>, A<sub>5</sub>, ......, A<sub>n</sub>
+
+* R = (A<sub>1</sub>, A<sub>2</sub>, A<sub>3</sub>, A<sub>4</sub>, A<sub>5</sub>, ......, A<sub>n</sub>) is a relation schema.
+    * Eg: Student(roll, name, cgpa) is a schema
+
+* Formally, given sets D1, D2, D3, ..., Dn in a relation *r* is a subset of D1 x D2 x D3 ..., Dn
+
+* The current values (**relation instance**) of a relation are defined by a table
+
+* An element t of r is a tuple represented by a row in a table
+
+#### Relations are Unordered
+
+#### Keys
+
+* Let K is a subset of R
+
+* K is a superkey of R is values of K are sufficient to identify a unique tuple of each possible relation
+    * Eg: {Id} and {Id, name} are both superkeys of instructor
+
+* Superkey K is a **candidate key** if K is minimal
+    * Eg: {Id} is a candidate key for instructor
+
+* One of the candidate keys is selected to be the primary key.
+    * The most appropriate candidate key is selected to be Primary Key
+
+* Foreign Key: 
