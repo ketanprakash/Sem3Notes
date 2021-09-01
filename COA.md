@@ -293,3 +293,47 @@ Therefore, opcode bit length = 7 bits
 1. ```ST {r1[M(x)]}, r2``` //Destination operand is a memeory address x pointed by register r1
 
 1.  ```ADD r1, #07``` //Second source operand 07 if immediate, first source and destination operands are the same and are in r1. (Immediate operand - Register)
+
+## 2021-09-01
+
+Ex: Assume that a processor can access memory location between 0 and 2^n - 1. How many memory locations are there?
+Ans: 2 ^ n
+if n = 20, memory size = 2 ^ 20 = 1 MB
+
+little endian and big endian alignment or word in memory
+
+| Little Endian | Big Endian | 
+| --- | --- |
+| Add0 : LSB | Add0 : MSB | 
+| ![(little endian image)](https://ik.imagekit.io/ketanprakash001/NotesAssets/Screenshot_20210901_101714_MGjxxskfW.png?updatedAt=1630471931654) | ![(big endian image)](https://ik.imagekit.io/ketanprakash001/NotesAssets/Screenshot_20210901_102018_wgkAbood2F.png?updatedAt=1630471931129) |
+
+Exercise: 
+1. Represent a 64 bit word in big endian and little endian format
+1. How many Cycles would the system take to read 64 bit word using 64 bit data bus and 32 bit data bus respectively?
+
+Ans: 
+1. Little Endian: Add0: LSB Add1 LSB + 1 Add2: LSB + 2 Add3: LSB + 3 Add4: MSB - 3 Add5: MSB - 2 Add6: MSB - 1 Add7: MSB
+
+### Memory operations
+
+1. Character: A character is represented using 8 bit ASCII code. 
+
+    * ![(image of characters in memory location)](https://ik.imagekit.io/ketanprakash001/NotesAssets/Screenshot_20210901_104035_-i1evJKJT.png?updatedAt=1630474148623)
+
+    * Note: Reading one character requires one cycle 
+
+    * Program counter: Register that stores the address of instruction to be exectuted next. If branching occurs, it will store the address of the instruction desired by the programmer.
+
+1. String Access: A String of 8 characters has 8 8-bit ASCII code and the 9th address location will have a 'null'(\0) character that indiacates the end of the string. Reading one such string requires 9 cycles(8 characters + null character).
+
+<hr/>
+
+* Register to memory is a bidirectional operation
+1. Register -> Memory: "Store" operation (ST)
+1. Register <- Memory: "Load" Operation (LD)
+
+Eg: LD r1, M[i]
+
+r1 <- M[i]
+
+![(image of this instruction)](https://ik.imagekit.io/ketanprakash001/NotesAssets/Screenshot_20210901_105555_cOu6NPp6Lg.png?updatedAt=1630474147954)
