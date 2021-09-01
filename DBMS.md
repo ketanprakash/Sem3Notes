@@ -219,3 +219,17 @@ Recommended Book: [Database System Concepts](https://docs.google.com/viewer?a=v&
     * The most appropriate candidate key is selected to be Primary Key
 
 * Foreign Key: 
+* Referential integrity: 
+
+## 2021-09-01
+
+### Relational Query Languages
+
+* Pure Languages
+    * Relational Algebra
+    * Tuple relational calculus
+    * Domain relational calculus
+
+* We will concentrate in this chapter on relational algebra
+    * Not turing machine equivalent(it does not have things like loops)
+    * consists of 6 basic operations
