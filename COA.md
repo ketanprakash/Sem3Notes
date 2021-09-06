@@ -337,3 +337,53 @@ Eg: LD r1, M[i]
 r1 <- M[i]
 
 ![(image of this instruction)](https://ik.imagekit.io/ketanprakash001/NotesAssets/Screenshot_20210901_105555_cOu6NPp6Lg.png?updatedAt=1630474147954)
+
+## 2021-09-03
+
+### Program counter(PC) 
+
+* PC is a register that holds address the instruction to be executed next. It is incremented (by the H/W) by the size of instruction (32 bit or 64 bit)
+
+> Note: Memory is word aligned i.e. instructions occupy memory equal to word length, if instruction is smaller than the word length, then the remaining memory is padded
+
+* ```PC <- I``` */ 1st instruction
+* ```PC <- I + 4``` */ 2nd instruction(32 bit machine)
+* ```PC <- I + 8``` */ 3rd instruction(32 bit machine)
+* ```PC <- I + 12``` */ 4th instruction(32 bit)
+![(image of the PC)](https://ik.imagekit.io/ketanprakash001/NotesAssets/Screenshot_20210903_102040_R4w384hJs.png?updatedAt=1630903079055)
+
+![(branch instruction)](https://ik.imagekit.io/ketanprakash001/NotesAssets/Screenshot_20210903_102734_1TbuOvQFi.png?updatedAt=1630903079508)
+
+* For branch operation (BR), the PC is set to the value of its input operand, causing the instruction at that address to be executed next.
+
+Ex of Conditional branch operations
+BEQ, BNE, BGT, BLT, BGE, BLE
+
+### Addressing modes
+
+The ways in which the instructions in an instruction set find the address of the operands.
+
+1. Direct Addressing Mode (Recall Earlier Discussion)
+    * Eg: ![(direct addressing example 1)](https://ik.imagekit.io/ketanprakash001/NotesAssets/Screenshot_20210903_103902_Gexf80jHR.png?updatedAt=1630903080303) //AC <- AC + r1
+    * Eg: ![(direct addressing example 2)](https://ik.imagekit.io/ketanprakash001/NotesAssets/Screenshot_20210903_104148_e-bk9sPPd.png?updatedAt=1630903081975) //r1 <- r1 + r2
+    * Eg: ![(direct addressing example 3)](https://ik.imagekit.io/ketanprakash001/NotesAssets/Screenshot_20210903_104131_Adu_DKuYX.png?updatedAt=1630903081145) //r0 <- r1 + r2
+
+    * Exercise: Value of a variable is at r4 and is 0x1B00. Use register address mode to double its value to double its value and store it in r1 register.
+        * Ans: ADD r1, r4, r4 //r1 <- r2 + r2
+        * MOV r1, r4; ADD r1, r4
+
+    * Exercise: Write an assembly language program to evaluate the following: 5 + (3 X 7) - 8
+        * MOV r1, #5
+        * MOV r2, #3
+        * MOV r3, #7
+        * MOV r4, #8
+        * MUL r5, r2, r3
+        * ADD r6, r1, r5
+        * SUB r7, r6, r4
+        <!-- * OR
+        * MOV 3
+        * MUL 7
+        * ADD 5
+        * SUB 8 -->
+
+1. Indirect Addressing Mode
