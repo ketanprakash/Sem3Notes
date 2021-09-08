@@ -387,3 +387,56 @@ The ways in which the instructions in an instruction set find the address of the
         * SUB 8 -->
 
 1. Indirect Addressing Mode
+
+## 2021-09-08
+
+Exercise: An integer variable value is to be stored at address 0x13000000. How will you store it from a 32 bit register r0 by using indirect address which is in register r4? (Given is 32 bit architecture and word in memory is 32 bits) Write sequence of steps during the execution 
+
+I1: MOV r4, #0x13000000
+I2: ST (r4), r0
+
+<!-- Steps: 
+1. PC points to the instruction I1
+1. Fetch I1
+1. Decode I1
+1. r4 <- #0x13000000
+1. PC <- I + 4
+1. M[r4] <- r0
+1. PC <- I + 8-->
+
+### Stacks and Queues
+
+Stack: Last In First Out(LIFO)
+Queue: First In First Out(FIFO)
+
+(stack image)
+
+### Processor Organization
+
+1. General Purpose Register(GPR) based organization
+    * Register file is a random access device
+    * Each register can be accessed independently
+    * Programs are responsible for moving data between memory and registers
+
+1. Stack Based Organization
+    * A sequential access device
+    * only the top register can be accessed directly
+
+<hr/>
+
+1. Reduced Instruction Set Computer(RISC)
+    * The computer architecture is basically 
+1. Complex Instruction Set Computer(CISC)
+    * Every Instruction can perform a relatively more complex job
+* Differ from each other in the way they reference the memory
+
+(risc and cisc image)
+
+Eg: ADD (r1), (r2), (r3);
+Write equivalent RISC instruction
+
+RISC:
+LD r4, (r2)
+LD r5, (r3)
+ADD r6, r4, r5
+ST (r1), r6
