@@ -409,7 +409,7 @@ I2: ST (r4), r0
 Stack: Last In First Out(LIFO)
 Queue: First In First Out(FIFO)
 
-(stack image)
+![(stack image)](https://ik.imagekit.io/ketanprakash001/NotesAssets/Screenshot_20210908_102700_RjCeVLaBjU.png)
 
 ### Processor Organization
 
@@ -430,7 +430,7 @@ Queue: First In First Out(FIFO)
     * Every Instruction can perform a relatively more complex job
 * Differ from each other in the way they reference the memory
 
-(risc and cisc image)
+![(risc and cisc image)](https://ik.imagekit.io/ketanprakash001/NotesAssets/Screenshot_20210908_104734_PcfB0eRccK3.png?updatedAt=1631107815239)
 
 Eg: ADD (r1), (r2), (r3);
 Write equivalent RISC instruction
