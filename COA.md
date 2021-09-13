@@ -426,9 +426,14 @@ Queue: First In First Out(FIFO)
 
 1. Reduced Instruction Set Computer(RISC)
     * The computer architecture is basically 
+    * Every instruction can be executed in one cycle
+    * RAM requirement is low because word size is low
 1. Complex Instruction Set Computer(CISC)
     * Every Instruction can perform a relatively more complex job
+    * Instructions can be executed in one or more cycle
+    * Cannot perform memory read/write operation with another operation / can only perform one operation per instruction
 * Differ from each other in the way they reference the memory
+
 
 ![(risc and cisc image)](https://ik.imagekit.io/ketanprakash001/NotesAssets/Screenshot_20210908_104734_PcfB0eRccK3.png?updatedAt=1631107815239)
 
@@ -436,7 +441,28 @@ Eg: ADD (r1), (r2), (r3);
 Write equivalent RISC instruction
 
 RISC:
-LD r4, (r2)
-LD r5, (r3)
-ADD r6, r4, r5
-ST (r1), r6
+* LD r4, (r2)
+* LD r5, (r3)
+* ADD r6, r4, r5
+* ST (r1), r6
+
+## 2021-09-13
+
+> Quiz on Wednesday
+> Syllabus already sent on email
+
+* Most of the computers presently are neither compeletely RISC nor CISC
+
+* EPIC (Explicitly Parralel Instruction Computing)
+
+#### Advantage of parallel computing: 
+* CPU utilisation increases as the idle time decreases
+
+* RISC is better for parallel computing, since each instruction is simple and uses only one cycle, executing them parallely is easier
+
+* Present machines have benefits for both CISC and RISC architectures
+
+<hr/>
+
+RISC: Machine Instruction -> Instruction Execution(Just one instruction cycle)
+CISC: Machine Instruction -> Microcode Conversion -> Microinstruction -> Microinstruction execution(2-10 instruction cycle)
