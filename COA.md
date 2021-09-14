@@ -453,7 +453,7 @@ RISC:
 
 * Most of the computers presently are neither compeletely RISC nor CISC
 
-* EPIC (Explicitly Parralel Instruction Computing)
+* EPIC (Explicitly Parallel Instruction Computing)
 
 #### Advantage of parallel computing: 
 * CPU utilisation increases as the idle time decreases
