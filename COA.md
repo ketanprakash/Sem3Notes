@@ -464,5 +464,5 @@ RISC:
 
 <hr/>
 
-RISC: Machine Instruction -> Instruction Execution(Just one instruction cycle)
-CISC: Machine Instruction -> Microcode Conversion -> Microinstruction -> Microinstruction execution(2-10 instruction cycle)
+* RISC: Machine Instruction -> Instruction Execution(Just one instruction cycle)
+* CISC: Machine Instruction -> Microcode Conversion -> Microinstruction -> Microinstruction execution(2-10 instruction cycle)
