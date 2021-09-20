@@ -466,3 +466,47 @@ RISC:
 
 * RISC: Machine Instruction -> Instruction Execution(Just one instruction cycle)
 * CISC: Machine Instruction -> Microcode Conversion -> Microinstruction -> Microinstruction execution(2-10 instruction cycle)
+
+## 2021-09-17
+
+### Processing Unit
+
+#### Organisation of a processor
+
+* Microprocessor 8085 is fundamental architecture for all the microprocessors
+    1. 6 General Purpose registers to store 8 bit data: B, C, D, E, H, L. The registers can be used singly or in pairs 
+    1. Accumulator is a 8 bit register defined as 'A'
+    1. Specific purpose register is a 8 bit register
+    ![(image of register)](https://ik.imagekit.io/ketanprakash001/NotesAssets/Screenshot_20210917_101024_iguiPNfgy.png?updatedAt=1632150351391)
+    1. S(Sign bit): To know if accumulator content is positive or negative
+        * if S is set: Positive 
+        * if S is reset: Negative
+    1. Z(Zero): Set if the result of the operation is zero
+    1. AC(Auxiliary Carry): AC Is set when a carry is generated
+    1. P(Parity Flag): indicates the number of 1s in the accumulator
+        * Set : if no of 1 is even (even parity)
+        * Reset: if the no 1 is odd (odd parity)
+    1. CY(Carry flag): If the operation results in a carry
+        * Set: if carry is generated
+        * Reset: if carry is not generated
+    
+    1. ![(addition image)](https://ik.imagekit.io/ketanprakash001/NotesAssets/Screenshot_20210917_103500_8JDhmjBPPkX.png?updatedAt=1632152704464)
+    1. Memory Register: Two 16 bit registers
+        1. MAR: for storing address to be referred
+        1. MBR: for storing read/write data to memory
+
+**Data Path Architecture**
+
+* There is flow of data with the processor collectively to execute some command. The components that facilitate this flow is called 'Data Path'
+
+* ![(highest level lowest level image)](https://ik.imagekit.io/ketanprakash001/NotesAssets/Screenshot_20210917_104025_Uv76IljRkX5.png?updatedAt=1632152949532)
+
+* ![(add bc image)](https://ik.imagekit.io/ketanprakash001/NotesAssets/Screenshot_20210917_104450_TI7ONb3g8PW.png?updatedAt=1632153011163)
+    * A program is nothing but a number of state transitions
+    * State is nothing but a small activity(register transfer activities)
+
+* Data Path Consists of: Register, ALU, Buses
+
+* This is how data from reg to ALU
+    * ![(image)](https://ik.imagekit.io/ketanprakash001/NotesAssets/Screenshot_20210920_213617_61-dkbJPhwF.png?updatedAt=1632154010265)
+* ![(image)](https://ik.imagekit.io/ketanprakash001/NotesAssets/Screenshot_20210920_213821_4e2YrE4mWo0.png?updatedAt=1632154154014)
