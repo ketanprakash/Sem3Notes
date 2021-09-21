@@ -22,7 +22,7 @@
 
 Recommended Book: [Database System Concepts](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxlaW1yYWxla3lvc2hpdHN1fGd4OjVkMDk1OTc0YTZkYTAzOTM)
 
-**Slides**
+**[Slides](https://drive.google.com/drive/folders/1LVNF2cJZdfp9bMcboPE2lLkVLoYEYHul?usp=sharing)**
 1. [Introduction](https://docs.google.com/presentation/d/1cYTunog75xwgB5kjV4bWZHtRVjuY5SYz/edit?usp=sharing&ouid=107556050169885649329&rtpof=true&sd=true)
 
 2. [Introduction to the Relational Model](https://docs.google.com/presentation/d/1MZILpH5NNZL13utCLEwmevJuFHqHP3Wg/edit?usp=sharing&ouid=107556050169885649329&rtpof=true&sd=true)	
@@ -75,161 +75,48 @@ Recommended Book: [Database System Concepts](https://docs.google.com/viewer?a=v&
 
 26. [Advanced Transaction Processing](https://docs.google.com/presentation/d/1gO9obR6XekClISxjWGQUbGkYA5faUs0s/edit#slide=id.p1)
 
-## 2021-08-18
+## Relational Algebra Practice
 
-### Introduction and Overview
+(relational algebra notebook images)
 
-#### DBMS has two components: 
-1. The Data
-1. A set of programs to manipulate(Eg. perform CRUD operations) the data
+## Joins in SQL
 
-#### DBMS forms the backend of any application that uses data
+* Natural Join
+    * Eg: 
+        * There are following schemas:
+            * section(course_id, section_id, semester, year, building, room_no)
+            * instructor(id, name, dept_name, salary)
+            * teaches(id, course_id, section_id, semester, year)
+            * course(course_id, title, dept_name, credits)
+            * department(dept_name, building, budget)
+        * Find the name of instructor and course_id of all courses taught by an instructor
+        * Ans:
+            * SELECT name, course_id
+            * FROM instructor, teaches
+            * WHERE instructor.id = teaches.id;
+            * ![(image)](https://ik.imagekit.io/ketanprakash001/NotesAssets/Screenshot_20210920_115526_OHYDVul4r.png?updatedAt=1632119159637)
+            * SELECT name, course_id
+            * FROM instructor NATURAL JOIN teaches;
+            * ![(image)](https://ik.imagekit.io/ketanprakash001/NotesAssets/Screenshot_20210920_115654_7URxGFTqu.png?updatedAt=1632119237593)
 
-#### Drawbacks of using file systems(not using DBMS): 
-1. Data redundancy and inconsistency. Eg: Multiple file formats. 
-1. Difficulty in accessing data. Eg: Need to write a new program to carry out each task
-1. Data isolation
-1. Integrity problems
-1. Atomicity of Updates
-1. Concurrant Access by mutliple users
-1. Security problems
+        * List the name of instructor along with the title of the course that they teach
+        * Ans: 
+            * SELECT name, title
+            * FROM instructor NATURAL JOIN teaches NATURAL JOIN course;
+            * ![(image)](https://ik.imagekit.io/ketanprakash001/NotesAssets/Screenshot_20210920_115809_EawQJxVe1.png?updatedAt=1632119314071)
 
-#### Levels of abstraction 
-1. Physical Level
-1. Logical level
-1. View Level 
+            * Problem with the instructor: If the a course is taught by an instructor from a different department this query does not work, problem is that there are two different overlapping attributes dept_name and course_id
 
-#### Data Models
-1. A collection of tools
-    1. Data
-    1. Data Relationships
-    1. Data Semantics
-    1. Data contraints
+            * SELECT name, title
+            * FROM (instructor NATURAL JOIN teaches) JOIN course
+            * USING (course_id);
+            * ![(image)](https://ik.imagekit.io/ketanprakash001/NotesAssets/Screenshot_20210920_120231_pfqOdUarv.png?updatedAt=1632119582840)
 
-1. Relational Model
-1. Entitity-Relationship data model
-1. Object Based Data Models
-1. Semistructured Model
-1. Other older models like Network Model and heirarchial model
-
-#### Relational Model
-1. All the data is stored in various tables.
-
-#### Data Definition Language: specification for defining the database schema.
-
-#### Data Manipulation Language
-1. Two classes of Languages: 
-    1. Pure
-        1. Relational Algebra
-        1. Tuple relational calculus
-        1. Domain relational calculus
-    1. Commercial
-        1. SQL
-#### Data Control Language
-
-## 2021-08-23
-
-#### SQL
-1. Most widely used commercial language 
-1. Non-perocedural language
-1. Not a programming language
-
-#### Database Design
-
-* Logical Design - Deciding the schema. Database requires that we find a good collection of relation schemas. 
-    * Computer Science decision - What realation schemas should we have and how should the attributes be distributed among the various relation schemas
-
-* Physical Design - Deciding on the physical layout of the database
-
-#### Design Approaches
-
-1. Entity-Relationship Model
-
-1. Normalization theory
-
-#### Database Manager
-
-1. Storage Management
-    1. Storage Manager is a program module that porvides the interface between low level data stored in the database the application programs and queries submitted to the system. 
-    1. The Storeage maanger is responsible for the following tasks: 
-        1. Interaction with the OS file manager and
-        1. Efficient storing, retrieving and updating of data 
-
-2. Query Processing
-    1. Parsing and translation
-    1. Optimization
-    1. Evalutation
-
-3.  Transaction
-
-#### Database Architecture
-
-1. Centralized
-1. Client-Server 
-1. Parallel (multi-processor)
-1. Distributed
-
-> DBMS uses B+ trees
-
-## 2021-08-27
-
-### Intro to Relational Model
-
-> Columns are called attributes
-> Rows are called tuples
-
-#### Attribute Types
-
-* The set of allowed values for each attribute is called the **domain** of the attribute
-    * For eg: Roll Number: (1 - 120), i.e. domain of RN is [1, 120]
-
-* Attribute values are (normally) required to be **atomic**; that is indivisible    
-    * Eg: Roll No: 2020IMT044 is not atomic as we can infer year, batch and roll no from it.
-   * Salary is an example of atomic attribute
-
-* The special value **null** is a member of every member of domain. Indicated that value is unknown. 
-
-
-#### Relation Schema and Instance
-
-* A<sub>1</sub>, A<sub>2</sub>, A<sub>3</sub>, A<sub>4</sub>, A<sub>5</sub>, ......, A<sub>n</sub>
-
-* R = (A<sub>1</sub>, A<sub>2</sub>, A<sub>3</sub>, A<sub>4</sub>, A<sub>5</sub>, ......, A<sub>n</sub>) is a relation schema.
-    * Eg: Student(roll, name, cgpa) is a schema
-
-* Formally, given sets D1, D2, D3, ..., Dn in a relation *r* is a subset of D1 x D2 x D3 ..., Dn
-
-* The current values (**relation instance**) of a relation are defined by a table
-
-* An element t of r is a tuple represented by a row in a table
-
-#### Relations are Unordered
-
-#### Keys
-
-* Let K is a subset of R
-
-* K is a superkey of R is values of K are sufficient to identify a unique tuple of each possible relation
-    * Eg: {Id} and {Id, name} are both superkeys of instructor
-
-* Superkey K is a **candidate key** if K is minimal
-    * Eg: {Id} is a candidate key for instructor
-
-* One of the candidate keys is selected to be the primary key.
-    * The most appropriate candidate key is selected to be Primary Key
-
-* Foreign Key: 
-* Referential integrity: 
-
-## 2021-09-01
-
-### Relational Query Languages
-
-* Pure Languages
-    * Relational Algebra
-    * Tuple relational calculus
-    * Domain relational calculus
-
-* We will concentrate in this chapter on relational algebra
-    * Not turing machine equivalent(it does not have things like loops)
-    * consists of 6 basic operations
+* ON
+    * The ON clause allows a general predicate over the joined relation
+    * Eg:
+        * SELECT *
+        * FROM student JOIN takes
+        * ON student.id = takes.id
+        * WHERE name like 'Z?';
+        * ![(image)](https://ik.imagekit.io/ketanprakash001/NotesAssets/Screenshot_20210920_120428_c5nGB9ofu.png?updatedAt=1632119690491)
