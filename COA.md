@@ -508,5 +508,41 @@ RISC:
 * Data Path Consists of: Register, ALU, Buses
 
 * This is how data from reg to ALU
-    * ![(image)](https://ik.imagekit.io/ketanprakash001/NotesAssets/Screenshot_20210920_213617_61-dkbJPhwF.png?updatedAt=1632154010265)
+   
+ * ![(image)](https://ik.imagekit.io/ketanprakash001/NotesAssets/Screenshot_20210920_213617_61-dkbJPhwF.png?updatedAt=1632154010265)
 * ![(image)](https://ik.imagekit.io/ketanprakash001/NotesAssets/Screenshot_20210920_213821_4e2YrE4mWo0.png?updatedAt=1632154154014)
+* ![(image)](https://ik.imagekit.io/ketanprakash001/NotesAssets/Screenshot_20210922_102550_6UrA1edC5IS.png?updatedAt=1632286645184)
+
+## 2021-09-22
+
+##### Execution of a complete instruction - Data Path Implementation
+
+* **Sequence of steps to fetch a word from memory**
+    1. PC -> MAR
+    1. PC -> PC + 4(32 bit word length)
+    1. Address Latch Enable(ALE)
+    1. Activate MEMRD(Memory Read)
+    1. Mem content -> Memory Data Register(MDR)
+    1. Deactivate MEMRD
+    1. MDR -> Instruction Register(IR) */IR contains the 32 bit instruction
+    * ![(Image 1 of the process)](https://ik.imagekit.io/ketanprakash001/NotesAssets/Screenshot_20210922_102240_s96PMJbyREI.png?updatedAt=1632286397699)
+    * ![(Image 2 of the process)](https://ik.imagekit.io/ketanprakash001/NotesAssets/Screenshot_20210922_102247_yGquH9mh-.png?updatedAt=1632286398248)
+
+* Repeat above steps if instruction operand fetch is not complete, then operand goes to MDR and then TEMP
+
+* ALU executes the instruction
+
+* **Writing back the ALU output to memory**
+    1. Register specified -> MAR
+    1. Address Latch Enable(ALE)
+    1. Activate MEMWR
+    1. ALU O/P in TEMP -> MDR
+    1. MDR -> The given memory location
+    1. Deactivate MEMWR
+    * ![(image of the process)](https://ik.imagekit.io/ketanprakash001/NotesAssets/Screenshot_20210922_104605_ewXIvz5oe.png?updatedAt=1632287802734) 
+
+* Eg:
+    * ![(example image 1)](https://ik.imagekit.io/ketanprakash001/NotesAssets/Screenshot_20210922_105317_OlucmvweaQs.png?updatedAt=1632288678463)
+    * ![(example image 2)](https://ik.imagekit.io/ketanprakash001/NotesAssets/Screenshot_20210922_105800_kGN7kyw0037.png?updatedAt=1632288679742)
+    * ![(example image 3)](https://ik.imagekit.io/ketanprakash001/NotesAssets/Screenshot_20210922_110018_tYoHxvnwB.png?updatedAt=1632288680699)
+    * ![(example image 4)](https://ik.imagekit.io/ketanprakash001/NotesAssets/Screenshot_20210922_105547_x2oF2fhGL.png?updatedAt=1632288678857)
