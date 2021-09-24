@@ -546,3 +546,43 @@ RISC:
     * ![(example image 2)](https://ik.imagekit.io/ketanprakash001/NotesAssets/Screenshot_20210922_105800_kGN7kyw0037.png?updatedAt=1632288679742)
     * ![(example image 3)](https://ik.imagekit.io/ketanprakash001/NotesAssets/Screenshot_20210922_110018_tYoHxvnwB.png?updatedAt=1632288680699)
     * ![(example image 4)](https://ik.imagekit.io/ketanprakash001/NotesAssets/Screenshot_20210922_105547_x2oF2fhGL.png?updatedAt=1632288678857)
+
+## 2021-09-24
+
+#### Control Unit
+
+* A control unit impelements the steps in the execution of an instruction by sequentially changing from one step to another
+
+* Control Word has bits that represent various control signals and are stored in the control memory. For n-sequence of steps, (ie, s0, ...., sn-1) the corresponding outputs Oi, .... Oi, m - 1 depends on the current state and the current input
+
+* Eg: PC -> MAR     */Transfer operation from PC to MAR
+* Control signal: r<sub>4</sub> <- C<sub>0</sub>.f<sub>1</sub>.d<sub>1</sub>.r<sub>1</sub>
+    * C<sub>0</sub>: step/sequence counter of encoder
+    * (f<sub>1</sub>.d<sub>1</sub>.r<sub>1</sub>): State 
+
+* Background: 
+    * f<sub>1</sub>, f<sub>2</sub>, ...: The select function signals
+        * f<sub>1</sub>: Data Transfer
+        * f<sub>2</sub>: Add
+    * r<sub>1</sub>, r<sub>2</sub>, ...: The select storage signals
+        * r<sub>1</sub>: Storing unit PC output control
+        * r<sub>2</sub>: Storing unit PC input control
+        * r<sub>3</sub>: Storing unit MAR output control
+        * r<sub>4</sub>: Storing unit MAR input control
+        * r<sub>5</sub>: Constant 4 Storing unit output control
+        * r<sub>6</sub>: Constant 4 Storing unit input control
+        * r<sub>7</sub>: Input for arithmetic unit X Output control
+        * r<sub>8</sub>: Output for arithmetic unit X Input control
+        * r<sub>9</sub>: arithmetic unit Y Output control
+        * r<sub>10</sub>: arithmetic unit Y Input control
+        * r<sub>11</sub>: arithmetic unit Z Input control
+        * r<sub>12</sub>: arithmetic unit Z Output control
+
+    * d<sub>1</sub>, d<sub>2</sub>, ...: The select data route signals
+        * d<sub>1</sub>: data route internal bus control
+        * d<sub>2</sub>: external add bus o/p control
+        * d<sub>3</sub>: external data bus o/p control
+        * d<sub>4</sub>: external data bus i/p control
+
+* Eg: PC <- PC + 4 */ PC is incremented by 4 pointing to the next instruction
+    * Ans: r<sub>2</sub> <- C<sub>1</sub>.f<sub>1</sub>.d<sub>1</sub>.r<sub>6</sub>.r<sub>5</sub>.r<sub>8</sub>.r<sub>7</sub>.r<sub>1</sub>.r<sub>10</sub>.r<sub>9</sub>.f<sub>2</sub>.r<sub>11</sub>.r<sub>12</sub>
