@@ -586,3 +586,57 @@ RISC:
 
 * Eg: PC <- PC + 4 */ PC is incremented by 4 pointing to the next instruction
     * Ans: r<sub>2</sub> <- C<sub>1</sub>.f<sub>1</sub>.d<sub>1</sub>.r<sub>6</sub>.r<sub>5</sub>.r<sub>8</sub>.r<sub>7</sub>.r<sub>1</sub>.r<sub>10</sub>.r<sub>9</sub>.f<sub>2</sub>.r<sub>11</sub>.r<sub>12</sub>
+
+## 2021-09-27
+
+* CU is a circuitry that directs operations within a CPU
+
+* Hardwired control Unit
+    * ![(image of control unit)](https://ik.imagekit.io/ketanprakash001/NotesAssets/Screenshot_20210927_101106_R3zV9KcOi_5.png?updatedAt=1632717696936)
+
+    * Logic is implemented with Gates, Flip Flops, decoders and other digital circuits
+
+    * Updating the control logic is difficult
+
+    * The CPU's way of impelementing is fixed once fabricated
+
+    * Used in RISC
+
+    * Instruction Decoding is fast
+
+* Microprogrammed Control Unit
+    * Control Logic is implemented with microprograms
+
+    * All the possible control words are stored in memory and depending on the requirement the specific control word is fetched from memory 
+
+    * Decoding is slow
+
+    * Used in CISC
+
+    * ![(image of microprogrammed control unit)](https://ik.imagekit.io/ketanprakash001/NotesAssets/Screenshot_20210927_103044_yjZOlMfTZ.png?updatedAt=1632718863712)
+
+    * Control memory is a ROM as the control word specifies a micro instruction. A series of micro instructions are stored in control memory
+
+> HW: Exemplify a 1. microoperation 2.  Microinstruction 3. Microprogram 4. Microcode
+
+## 2021-09-29
+
+### Memory System
+
+* Assumptions made earlier that
+    * "all memory operations take the same amount of time to complete"
+    * "memory cpu interactions are limited to read and write"
+    * "memory stores both data and program and cpu reads from memory and writes in to memory"
+
+* The addresses pertaining to a program can be greater than the physical addresses available in the memory. 
+    * We require some kind of management to see that the large requirement of the program can be handled with the small physical resources. That is why we require 'Virtual Memory'
+    * The virtual memory contains virtual addresses or logical addresses
+
+* ![(levels of memory)](https://ik.imagekit.io/ketanprakash001/NotesAssets/Screenshot_20210929_101915_YQi2ep5FcY8k.png?updatedAt=1632890973245)
+
+* ![(memory variation)](https://ik.imagekit.io/ketanprakash001/NotesAssets/Screenshot_20210929_102048_sP-khLEmS.png?updatedAt=1632891071455)
+
+* Reasons for access time variation
+    * Technology permits to read/write multiple sequence of words in less time than an equal number of randomly located words
+
+    * **Locality of Reference**: assuming that there is a high probability that each address within the block is referred
