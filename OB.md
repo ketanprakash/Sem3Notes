@@ -113,3 +113,7 @@
     * People attend more quickly to postitively values stimuli than to negatively valued stimuli
 
     * Example: achievement oriented employees notice announcements about promotion oppurtunities faster than an employee with less achievement motivation
+
+###### Perceptual Process
+
+![(image of perceptual process)](https://ik.imagekit.io/ketanprakash001/NotesAssets/Screenshot_20210927_090741_Hi7SXPgVlZU.png?updatedAt=1632713917179)

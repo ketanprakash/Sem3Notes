@@ -640,3 +640,78 @@ RISC:
     * Technology permits to read/write multiple sequence of words in less time than an equal number of randomly located words
 
     * **Locality of Reference**: assuming that there is a high probability that each address within the block is referred
+
+## 2021-10-04
+
+Class Missed
+* ![](https://ik.imagekit.io/ketanprakash001/NotesAssets/WhatsApp_Image_2021-10-13_at_4.30.49_PM_ZKcMxglet.jpeg?updatedAt=1634122981406)
+## 2021-10-06
+
+* Ex: 
+    * The access time of cache is 5ns 80% hit rate, and the access time of main memory 100ns, 99.5 % hit rate, access time of virtual memory is 10ms, what is the average access time of this heirarchy?
+    * Average access time to reach main memory = (thit * phit) + (tmiss * tmiss)
+    = (100 ns * 0.995) + (10ms * 0.005)
+    = 99.5 + 50000
+    = 50099.5
+
+    * Average access time for request that reach the cache = (thit * phit) + (tmiss * pmiss)
+              = (5ns * 0.8) + (50099.5 * 0.2)
+              = 10024 ns
+
+###### Cache Architecture
+
+1. Harvard Architecture
+1. Unified Architecture
+
+## 2021-10-11
+
+###### Memory Chip organisation
+
+* A bit cell retain 1 bit of information
+* ![bit cell image](https://ik.imagekit.io/ketanprakash001/NotesAssets/Screenshot_20211011_100626_OWCt1X6qI.png?updatedAt=1634120654937)
+
+* word: word is a collection of bits
+* 8 bit length word means word will have 8 bits
+
+* 64 bit memory chip 2d organisation:
+* ![memory cell image](https://ik.imagekit.io/ketanprakash001/NotesAssets/Screenshot_20211011_102347_p9nbqs-13yk.png?updatedAt=1634120655221)
+> HW: read 2.5d organisation, SRAM bit cell
+Eg: 1024 bit memory chip
+
+## 2021-10-13
+
+###### Dynamic Random Access Memory(DRAM)
+
+* It uses capacitor to store the charge
+
+* When a capacitor is charged: A bit 1 is stored
+* When a capcitor is discharged: A bit 0 is stored
+* DRAM is an analog device and uses a capacitor to store charge 
+* SRAM is a digital device and uses FFs to store state
+* Bit cells are arranged in a 2d fashion
+* A bit cell in DRAM
+
+* ![DRAM Bit cell](https://ik.imagekit.io/ketanprakash001/NotesAssets/Screenshot_20211013_101149_N7KW8Znmf.png?updatedAt=1634120671916)
+* ![DRAM memory cell](https://ik.imagekit.io/ketanprakash001/NotesAssets/Screenshot_20211013_101323_UFGCCG_HEwg.png?updatedAt=1634120673405)
+* 2D Array of bit cell constitute DRAM
+* ![Capacitor Discharge](https://ik.imagekit.io/ketanprakash001/NotesAssets/Screenshot_20211013_101710_PrMYcVUVu.png?updatedAt=1634120673703)
+* Every read operation in DRAM must be followed by a write operation as capacitor discharges while reading this is known as destructive read
+* Destructive read: when you read the cell it is lost and it has to be rewritten(i.e every read operation must be followed by a write operation)
+* The transistor is not a perfect switch and the capacitor leaks through the transistor and the bit line
+* Capacitor needs to have a large capacity if recharging does not happen quickly
+* larger plate -> large bit cell
+* to reduce the size of the bit cell, we pack the transistor and capacitor in the same unit which is known as trench cell technology
+* SRAM Bit Cell:
+* ![SRAM Bit Cell](https://ik.imagekit.io/ketanprakash001/NotesAssets/Screenshot_20211013_103400_aKE5gK7ToI_.png?updatedAt=1634120674529)
+* SRAM bit cell is known as 6T bit cell
+* DRAM bit cell is known as 1T bit cell
+
+* Cycle Time: Time between start of consecutive accesses 
+
+* Cycle Time of SRAM = (Access Time)
+
+* Cycle Time of DRAM = 2 * (Access Time)
+
+* Eg: 
+    * If a DRAM has 512 rows and its refresh time is 10 ms. How often on average does a row refresh operation need to be done?
+    * Ans: Refresh is a must. on average 1 row refresh in every 1.95 * 10^-5 or a block of rows 
