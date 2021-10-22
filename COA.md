@@ -715,3 +715,74 @@ Eg: 1024 bit memory chip
 * Eg: 
     * If a DRAM has 512 rows and its refresh time is 10 ms. How often on average does a row refresh operation need to be done?
     * Ans: Refresh is a must. on average 1 row refresh in every 1.95 * 10^-5 or a block of rows 
+
+## 2021-10-18
+
+### Input-Output Organisation
+
+* I/O system / I/O devices are responsible for both
+    1. Communicating with outside world
+    1. Storing data for later retrieval
+
+#### Characterizing I/O performance
+
+* Data rate: The amount of data that can be transferred to/from the I/O device in a period of time. Measured in bits/second or Bytes/second
+
+* Slowest data rate is 100 Bytes/second: keyboard
+
+* Fastest data rate is 100s of MB/second network
+
+* I/O Devices vary in their data rate::
+    * Character at a time
+    * Block of a characters at a time
+    * Burst Traffic
+    * Steady Traffic
+    * ![](https://ik.imagekit.io/ketanprakash001/NotesAssets/Screenshot_20211020_104019__0ngMUm4gp4.png?updatedAt=1634879924934)
+
+* What determines the data rate?
+    1. Physical limitation of the device
+    1. Bandwidth of the interface that connects the device with the CPU and memory
+    * ![](https://ik.imagekit.io/ketanprakash001/NotesAssets/Screenshot_20211020_104910_my0IWQld-hD.png?updatedAt=1634879926250)
+    * Note: An I/O device data rate may constitute a bottleneck in the overall performance of the computer system
+
+###### Input - Output Handling
+
+* Application programs do not perform I/O directly
+* ![](https://ik.imagekit.io/ketanprakash001/NotesAssets/Screenshot_20211020_104228_Xvj9RT3Yn.png?updatedAt=1634879925197)
+* Application programs perform I/O through I/O services from the OS
+* We require the methods to control the functionally and speed varying I/O devices from the I/O subsystem of the kernel of the OS
+* Procedure of handling such devices is called I/O handling
+
+## 2021-10-22
+
+* ![Computer I/O block diagram image](https://ik.imagekit.io/ketanprakash001/NotesAssets/Screenshot_20211022_100756_7HpTREqOi.png?updatedAt=1634879927291)
+
+* Source and Target wrt I/O devices is the _____?
+    * Memory Unit
+
+#### Data Transfer between CPU and I/O devices (Aka. The modes of transfer or possible ways)
+
+1. Programmed I/O
+    * Outcome of the I/O instructions written in the program
+    * Eg: Memory Access Registers (Load, Store), I/O operations: MDR, MAR
+    1. Through a pair of registers(Data Registers, Address Registers)
+    1. Is there a direct access to memory?
+        * No, we access using Data registers and access register
+    1. Time consumed by programmed I/O (more/less): more
+1. Interrupt Initiated I/O
+    >Note: In a typical scenario, the CPU waits for data to be available, which results in the loss of CPU cycles. CPU is way faster than the other devices in the computer system, therefore we use an interrupt based system
+    * Mechanism to inform the interface to issue an interrupt signal to CPU whenever data is available from any device
+    * Advantages
+        1. Therefore, no wait time for CPU
+        1. CPU is relatively faster
+    * Limitations
+        1. I/O transfer rate is limited by the speed with which CPU can test or service a device
+        1. Number of instructions must be executed for each I/O transfer
+> Note: Both the above modes require the active interaction of the CPU to transfer data between memory and I/O module
+
+1. Direct Memory Access(DMA)
+    * CPU intervention for memory to peripherals is avoided and is direct
+    * During DMA process the CPU is idle i.e. the CPU is not accessing the memory the bus i.e. the memory bus is free
+    * This bus which is free is used by DMA controller for transfer of data directly between memory and peripherals
+
+> Minor 2 exam on 1st Nov syllabus till here(22-10-2021)
