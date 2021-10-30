@@ -120,3 +120,104 @@ Recommended Book: [Database System Concepts](https://docs.google.com/viewer?a=v&
         * ON student.id = takes.id
         * WHERE name like 'Z?';
         * ![(image)](https://ik.imagekit.io/ketanprakash001/NotesAssets/Screenshot_20210920_120428_c5nGB9ofu.png?updatedAt=1632119690491)
+
+## 2021-10-27
+
+### Canonical Cover
+
+* Def: A canonical cover F<sub>c</sub> on F will contain no extraneous(redundant) FDs.
+
+* If F<sub>c</sub> contains A <span class = "ligature">-></span> B, B <span class = "ligature">-></span> C, then it won't contain A <span class = "ligature">-></span> C
+
+* Algo
+    * F<sub>c</sub> = F
+    * do 
+    * Union Rule: a<sub>1</sub> <span class = "ligature">-></span> b<sub>1</sub>, a<sub>2</sub> <span class = "ligature">-></span> b<sub>2</sub>, replace with a<sub>1</sub> <span class = "ligature">-></span> b<sub>1</sub>b<sub>2</sub>
+    * Find a <span class = "ligature">-></span> b in F<sub>c</sub> with extraneous attribute in a or b
+    * If an extraneous attribute is found, delete it from a <span class = "ligature">-></span> b
+
+* Finding if an attribute is redundant in a <span class = "ligature">-></span> b
+    * We remove the attribute from the FD and then find a<sup>+</sup>, if it stays the same, then the attribute is redundant
+    * eg: 
+        * name <span class = "ligature">-></span> roll, cgpa
+        * roll <span class = "ligature">-></span> cgpa
+
+        * now, name<sup>+</sup> = {roll, cgpa}
+        * if we remove cgpa, new FD name <span class = "ligature">-></span> roll
+        * name<sup>+</sup> = {roll, cgpa}
+        * since name<sup>+</sup> does not change, cgpa is redundant
+
+* Algo
+    * Consider FD a <span class = "ligature">-></span> b in F and attribute A is extraneous:
+        * If A belongs to a, F' = (F - {a <span class = "ligature">-></span> b}) U ((a - A) <span class = "ligature">-></span> b)
+        * If F <span class = "ligature">=></span> F', then the attribute is extraneous else it is not extraneous
+
+        * If A belongs to a, F' = (F - {a <span class = "ligature">-></span> b}) U ((a - A) <span class = "ligature">-></span> b)
+        * If F' <span class = "ligature">=></span> F then the attribute is extraneous else it is not extraneous
+
+    * Eg: F = {A <span class = "ligature">-></span> BC, B <span class = "ligature">-></span> C, AB <span class = "ligature">-></span> C, A <span class = "ligature">-></span> B}. Find the Canonical Cover
+        * Using Union Rule: Combining A <span class = "ligature">-></span> BC and A <span class = "ligature">-></span> B, we get A <span class = "ligature">-></span> BC
+        * F = {A <span class = "ligature">-></span> BC, B <span class = "ligature">-></span> C, AB <span class = "ligature">-></span> C}
+        * F = {A <span class = "ligature">-></span> BC, B <span class = "ligature">-></span> C, B <span class = "ligature">-></span> C}
+
+        * Does F <span class = "ligature">=></span> F' ? Yes, because F' is a subset of F
+
+## 2021-10-29
+### Canonical Covers
+
+* R(w, x, y, z), F = {x <span class = "ligature">-></span> w, wz <span class igature">-></span> xy, y <span class = "ligature">-></span> wxz}, What is Fc?
+* Solution:
+    * Remove redundancy in RHS using decomposition
+        * F = {x <span class = "ligature">-></span> w, <s>wz <span class = "ligature">-></span> x</s>, wz <span class = "ligature">-></span> y, y <span class = "ligature">-></span> x, <s>y <span class = "ligature">-></span> w</s>, y <span class = "ligature">-></span> z}
+    
+    * Remove redundancy in entire rule: 
+        * Check for x <span class = "ligature">-></span> w: 
+            * x<sup>+</sup> = {x, w}, 
+            * (not considering this rule)(x<sup>+</sup>)' = {x}
+            * So this rule is not redundant 
+        * Check for wz <span class = "ligature">-></span> x
+            * wz<sup>+</sup>: {w, z, x, y}
+            * (wz<sup>+</sup>)': {w, z, y, x}
+            * So this is redundant
+        * Check for wz <span class = "ligature">-></span> y
+            * wz<sup>+</sup> = {w, z, y, x}
+            * (wz<sup>+</sup>)' = {w, z}
+            * So this rule is not redundant
+        * y <span class = "ligature">-></span> x
+            * y<sup>+</sup> = {y, x, w, z}
+            * y<sup>+</sup>' = {y, w, z}
+            * Essential
+        * y <span class = "ligature">-></span> w:
+            * y<sup>+</sup> = {y, x, w, z}
+            * y<sup>+</sup>' = {y, x, w, z}
+            * Redundant
+        * y <span class = "ligature">-></span> z: 
+            * y<sup>+</sup> = {y, x, w, z}
+            * y<sup>+</sup>' = {y, x, w}
+            * Essential
+    * F: {x <span class = "ligature">-></span> w, wz <span class = "ligature">-></span> y, y <span class = "ligature">-></span> x, y <span class = "ligature">-></span> z}
+    * Remove redundancy on the left hand side:
+        * Checking wz <span class = "ligature">-></span> y
+            * wz<sup>+</sup> = {w, z, y, x}
+            * w<sup>+</sup> = {w}
+            * z<sup>+</sup> = {z}
+            * Both w and z are essential since the w<sup>+</sup> and z<sup>+</sup> <span class = "ligature">!=</span> (wz)<sup>+</sup>
+    * Use union to combine rules:
+        * F<sub>c</sub> = {x <span class = "ligature">-></span> w, wz <span class = "ligature">-></span> y, y <span class = "ligature">-></span> xz}
+        * F = {x <span class = "ligature">-></span> w, wz <span class = "ligature">-></span> xy, y <span class = "ligature">-></span> wxz}
+> If w<sup>+</sup> = {w, z, x, y}, in that case z would have been redundant
+> If z<sup>+</sup> = {w, z, x, y}, in that case w would have been redundant
+
+### Lossless Join Decomposition
+* If R is decomposed into (R1, R2) it would be lossless if the following conditions hold:
+    1. a(R1) U a(R2) = a(R): Every attribute of R must be in either R1 or R2 or both
+    1. a(r1) ∩ a(R2) <span class = "ligature">!=</span> ϕ: There must be a common attribute in R1 and R2
+    1. a(R1) ∩ a(R2) <span class = "ligature">-></span> a(R1) or a(R1) ∩ a(R2) <span class = "ligature">-></span> a(R2): The common attribute must be a candidate key of either R1 or R2
+
+* Practice
+    * ![Question Image](https://ik.imagekit.io/ketanprakash001/NotesAssets/Screenshot_20211029_115548_dwvFFMyS1xk.png?updatedAt=1635587777008)
+
+    * ![Soln Image 1](https://ik.imagekit.io/ketanprakash001/NotesAssets/Screenshot_20211029_120136_6s5EgAMBk.png?updatedAt=1635587777817)
+    * ![Soln Image 2](https://ik.imagekit.io/ketanprakash001/NotesAssets/Screenshot_20211029_120151_ODPPKK0WN.png?updatedAt=1635587778605)
+
+> Learn about Dependency Preseving Decomposition
