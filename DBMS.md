@@ -221,3 +221,46 @@ Recommended Book: [Database System Concepts](https://docs.google.com/viewer?a=v&
     * ![Soln Image 2](https://ik.imagekit.io/ketanprakash001/NotesAssets/Screenshot_20211029_120151_ODPPKK0WN.png?updatedAt=1635587778605)
 
 > Learn about Dependency Preseving Decomposition
+
+## 2021-11-01
+
+* What is a 'good' decomposition?
+
+1. 1NF
+    * Ensure that every attribute in the schema is atomic
+    * Automatically assume every attribute to be "ATOMIC"
+    * Student(roll, name, class)
+
+1. 2NF(Second Normal Form)
+    * Table should be in 1NF
+    * No **partial dependency**: Some non-prime attributes are not fully dependent on the primary key
+        * Eg: R(A,B,C,D,E)
+            * Non prime C, D, E, AB -> C, (A -> C(partial dependency))
+            * Non prime attribute is dependent on part of primary key
+    * Example
+        * ![Example Image]()
+        * If Primary key is {student Id, Subject Id}, then {Student Id, Subject Id} -> Teacher
+        * Also, Subject Id -> Teacher
+        * Therefore, Teacher is dependent on a part of Primary Key, therefore, Subject ID -> Teacher is a partial dependency
+        * We need to break the Score schema into two parts: SCORE and SUBJECT
+        * SCORE(score id, student id, subject Id, marks)
+        * SUBJECT(subject id, teacher) 
+    
+    * Example: 
+        * Grade_Report(Sid, Sname, addr, major, cid, ctitle, fname, floc, grade)
+
+        * Functional Dependencies
+            * sid, cid -> Grade Report
+            * Sid -> Sname, addr, major
+            * cid -> ctitle, fname, floc
+            * fname -> floc
+            * sid, cid -> grade
+
+            * 3 Tables: 
+                * T1(sid, cid, grade)
+                * T2(sid, sname, addr, major)
+                * T3(cid, ctitle, fname, floc)
+
+        * T1, T2, T3, are in 2NF
+
+        * <font color = "red"> If the primary key is not composite(single attribute), the table is always in 2NF</font>
