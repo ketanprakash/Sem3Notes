@@ -165,7 +165,7 @@ Recommended Book: [Database System Concepts](https://docs.google.com/viewer?a=v&
 ## 2021-10-29
 ### Canonical Covers
 
-* R(w, x, y, z), F = {x <span class = "ligature">-></span> w, wz <span class igature">-></span> xy, y <span class = "ligature">-></span> wxz}, What is Fc?
+* R(w, x, y, z), F = {x <span class = "ligature">-></span> w, wz <span class="ligature">-></span> xy, y <span class = "ligature">-></span> wxz}, What is Fc?
 * Solution:
     * Remove redundancy in RHS using decomposition
         * F = {x <span class = "ligature">-></span> w, <s>wz <span class = "ligature">-></span> x</s>, wz <span class = "ligature">-></span> y, y <span class = "ligature">-></span> x, <s>y <span class = "ligature">-></span> w</s>, y <span class = "ligature">-></span> z}
@@ -185,15 +185,15 @@ Recommended Book: [Database System Concepts](https://docs.google.com/viewer?a=v&
             * So this rule is not redundant
         * y <span class = "ligature">-></span> x
             * y<sup>+</sup> = {y, x, w, z}
-            * y<sup>+</sup>' = {y, w, z}
+            * (y<sup>+</sup>)' = {y, w, z}
             * Essential
         * y <span class = "ligature">-></span> w:
             * y<sup>+</sup> = {y, x, w, z}
-            * y<sup>+</sup>' = {y, x, w, z}
+            * (y<sup>+</sup>)' = {y, x, w, z}
             * Redundant
         * y <span class = "ligature">-></span> z: 
             * y<sup>+</sup> = {y, x, w, z}
-            * y<sup>+</sup>' = {y, x, w}
+            * (y<sup>+</sup>)' = {y, x, w}
             * Essential
     * F: {x <span class = "ligature">-></span> w, wz <span class = "ligature">-></span> y, y <span class = "ligature">-></span> x, y <span class = "ligature">-></span> z}
     * Remove redundancy on the left hand side:
@@ -211,7 +211,7 @@ Recommended Book: [Database System Concepts](https://docs.google.com/viewer?a=v&
 ### Lossless Join Decomposition
 * If R is decomposed into (R1, R2) it would be lossless if the following conditions hold:
     1. a(R1) U a(R2) = a(R): Every attribute of R must be in either R1 or R2 or both
-    1. a(r1) ∩ a(R2) <span class = "ligature">!=</span> ϕ: There must be a common attribute in R1 and R2
+    1. a(R1) ∩ a(R2) <span class = "ligature">!=</span> ϕ: There must be a common attribute in R1 and R2
     1. a(R1) ∩ a(R2) <span class = "ligature">-></span> a(R1) or a(R1) ∩ a(R2) <span class = "ligature">-></span> a(R2): The common attribute must be a candidate key of either R1 or R2
 
 * Practice
@@ -235,13 +235,13 @@ Recommended Book: [Database System Concepts](https://docs.google.com/viewer?a=v&
     * Table should be in 1NF
     * No **partial dependency**: Some non-prime attributes are not fully dependent on the primary key
         * Eg: R(A,B,C,D,E)
-            * Non prime C, D, E, AB -> C, (A -> C(partial dependency))
+            * Non prime C, D, E, AB <span class="ligature">-></span> C, (A <span class="ligature">-></span> C(partial dependency))
             * Non prime attribute is dependent on part of primary key
     * Example
-        * ![Example Image]()
-        * If Primary key is {student Id, Subject Id}, then {Student Id, Subject Id} -> Teacher
-        * Also, Subject Id -> Teacher
-        * Therefore, Teacher is dependent on a part of Primary Key, therefore, Subject ID -> Teacher is a partial dependency
+        * ![Example Image](https://ik.imagekit.io/ketanprakash001/NotesAssets/Screenshot_20211101_112620_HcX-nOYA3XP.png?updatedAt=1636299806858)
+        * If Primary key is {student Id, Subject Id}, then {Student Id, Subject Id} <span class="ligature">-></span> Teacher
+        * Also, Subject Id <span class="ligature">-></span> Teacher
+        * Therefore, Teacher is dependent on a part of Primary Key, therefore, Subject ID <span class="ligature">-></span> Teacher is a partial dependency
         * We need to break the Score schema into two parts: SCORE and SUBJECT
         * SCORE(score id, student id, subject Id, marks)
         * SUBJECT(subject id, teacher) 
@@ -250,11 +250,11 @@ Recommended Book: [Database System Concepts](https://docs.google.com/viewer?a=v&
         * Grade_Report(Sid, Sname, addr, major, cid, ctitle, fname, floc, grade)
 
         * Functional Dependencies
-            * sid, cid -> Grade Report
-            * Sid -> Sname, addr, major
-            * cid -> ctitle, fname, floc
-            * fname -> floc
-            * sid, cid -> grade
+            * sid, cid <span class="ligature">-></span> Grade Report
+            * Sid <span class="ligature">-></span> Sname, addr, major
+            * cid <span class="ligature">-></span> ctitle, fname, floc
+            * fname <span class="ligature">-></span> floc
+            * sid, cid <span class="ligature">-></span> grade
 
             * 3 Tables: 
                 * T1(sid, cid, grade)
@@ -263,4 +263,4 @@ Recommended Book: [Database System Concepts](https://docs.google.com/viewer?a=v&
 
         * T1, T2, T3, are in 2NF
 
-        * <font color = "red"> If the primary key is not composite(single attribute), the table is always in 2NF</font>
+        * If the primary key is not composite(single attribute), the table is always in 2NF
