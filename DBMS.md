@@ -264,3 +264,31 @@ Recommended Book: [Database System Concepts](https://docs.google.com/viewer?a=v&
         * T1, T2, T3, are in 2NF
 
         * If the primary key is not composite(single attribute), the table is always in 2NF
+
+1. 3NF(Third Normal Form)
+    * Conditions: 
+        1. Relation is in 2NF
+        1. There should be no transitive dependency for non prime attributes
+            * Transitive dependency: a -> b, b -> c then a -> b where b is non prime
+            * In the prev example:
+                * T1(sid, cid, grade), T2(sid, sname, addr, major), T3(cid, title, fname, floc)
+                * In schema T3, cid -> fname, floc -> fname, cid -> floc is a transient dependency on non prime attribute. Therefore, T3 is not in 3NF
+                * Insertion anomaly in T3, we cannot add a faculty if a course is not assigned
+                * Deletion anomaly in T3, if a faculty teaches one course and the course is dropped we have to also delete the faculy
+                * Updation anomaly in T3, if a faculty changes location, we have to change location in every course table
+                * Student(sid, sname, addr, major) -> 3NF, reg(sid, cid, grade) -> 3NF, Course(cid, title, fname, floc) -> Not in 3NF
+                * cid -> title, fname, floc, fname -> floc
+                * Course => C1(**cid**, title, fname), C2(**fname**, floc), "fname" becomes the foreign key
+                * A foreign key is natural outcome of 3NF decomposition
+    
+    * OR
+
+    * 2nd Definition: A relation in 3NF if for all a -> b in F atleast one of the following conditions hold:
+        1. a -> b is trivial (b ⊆ a)
+        1. a is a superkey
+        1. Each attribute 'A' in (b - a) should be prime
+            * fname -> floc does not follow any of the three conditions
+    1. Lossless Decomposition upto 3NF
+    1. Dependency preserving
+
+1. Boyce - Codd Normal Form
