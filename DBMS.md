@@ -226,12 +226,12 @@ Recommended Book: [Database System Concepts](https://docs.google.com/viewer?a=v&
 
 * What is a 'good' decomposition?
 
-1. 1NF
+1. **1NF**
     * Ensure that every attribute in the schema is atomic
     * Automatically assume every attribute to be "ATOMIC"
     * Student(roll, name, class)
 
-1. 2NF(Second Normal Form)
+1. **2NF(Second Normal Form)**
     * Table should be in 1NF
     * No **partial dependency**: Some non-prime attributes are not fully dependent on the primary key
         * Eg: R(A,B,C,D,E)
@@ -265,7 +265,7 @@ Recommended Book: [Database System Concepts](https://docs.google.com/viewer?a=v&
 
         * If the primary key is not composite(single attribute), the table is always in 2NF
 
-1. 3NF(Third Normal Form)
+1. **3NF(Third Normal Form)**
     * Conditions: 
         1. Relation is in 2NF
         1. There should be no transitive dependency for non prime attributes
@@ -291,4 +291,4 @@ Recommended Book: [Database System Concepts](https://docs.google.com/viewer?a=v&
     1. Lossless Decomposition upto 3NF
     1. Dependency preserving
 
-1. Boyce - Codd Normal Form
+1. **Boyce - Codd Normal Form**
