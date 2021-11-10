@@ -269,7 +269,7 @@ Recommended Book: [Database System Concepts](https://docs.google.com/viewer?a=v&
     * Conditions: 
         1. Relation is in 2NF
         1. There should be no transitive dependency for non prime attributes
-            * Transitive dependency: a -> b, b -> c then a -> b where b is non prime
+            * Transitive dependency: a -> b, b -> c then a -> c where c is non prime
             * In the prev example:
                 * T1(sid, cid, grade), T2(sid, sname, addr, major), T3(cid, title, fname, floc)
                 * In schema T3, cid -> fname, floc -> fname, cid -> floc is a transient dependency on non prime attribute. Therefore, T3 is not in 3NF
@@ -292,3 +292,31 @@ Recommended Book: [Database System Concepts](https://docs.google.com/viewer?a=v&
     1. Dependency preserving
 
 1. **Boyce - Codd Normal Form**
+    * Eg: 
+        * ![Question Image]()
+        * Criterion:
+            1. For a single subject, there can be multiple registered students
+            1. A student can register for multiple subjects
+            1. A subject can have multiple faculties
+            1. A faculty can teach only one subject
+            1. For a single subject, a student can be taught by a single faculty
+        * Functional Dependencies:
+            1. Advisor -> Major
+            1. SID, Major -> Advisor
+        * Candidate Key: <u>SID</u>, <u>Major</u>
+        * Check for 1NF: Atomic by default
+        * Check for 2NF: No partial dependency
+        * Check for 3NF: It is in 3NF
+        * Deletion Anomaly: Present as we lose the info that F4 teaches Phy
+        * Insertion Anomaly: We cannot insert a new advisor and major without a student registration
+    * Left Hand Side should of every functional dependency should be a prime attribute
+    * If we delete the third criteria from 3NF is BCNF
+    * Decomposition Algorithm:
+        * Suppose we have schema R and a non - trivial FD a -> b which causes a violation of BCNF, we can decompose it as
+            1. a U b
+            1. (R - (b - a))
+    * Eg:  
+        * After Decomposition
+            1. R1(<u>Advisor</u>, Major)
+            1. R2(<u>SID, Advisor</u>)
+    * After BCNF, there is not insertion, upadation and deletion anomaly
