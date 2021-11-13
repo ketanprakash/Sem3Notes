@@ -293,7 +293,7 @@ Recommended Book: [Database System Concepts](https://docs.google.com/viewer?a=v&
 
 1. **Boyce - Codd Normal Form**
     * Eg: 
-        * ![Question Image]()
+        * ![Question Image](https://ik.imagekit.io/ketanprakash001/NotesAssets/Screenshot_20211101_112620_HcX-nOYA3XP.png?updatedAt=1636299806858)
         * Criterion:
             1. For a single subject, there can be multiple registered students
             1. A student can register for multiple subjects
